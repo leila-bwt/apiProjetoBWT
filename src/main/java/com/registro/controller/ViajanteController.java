@@ -2,6 +2,7 @@ package com.registro.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -50,14 +51,14 @@ public class ViajanteController {
 	}
 	
 	/* UPDATE */
-	@PutMapping /* inserção de dados*/
+	@PutMapping (value = "/{id}")/* inserção de dados*/
 	public ResponseEntity<Viajante> update(@RequestBody Viajante viajante) {
 		Viajante obj = ViajanteService.update(viajante);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	/* DELETE */
-	@DeleteMapping(value = "/(id)")
+	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete (@PathVariable Long id){
 		ViajanteService.deleteViajante(id);
 		return ResponseEntity.noContent().build();
